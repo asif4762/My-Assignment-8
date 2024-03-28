@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFromLocalStorageReadBooks } from "../Utils/LocalStorageReadBooks";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { ResponsiveContainer } from "recharts";
 
 const PagesToRead = () => {
   const [saveData, setSaveData] = useState([]);
@@ -48,9 +49,8 @@ const PagesToRead = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
+    <ResponsiveContainer width="100%" height={500}>
       <BarChart
-        width={1100}
-        height={500}
         data={data}
         margin={{
           top: 20,
@@ -75,8 +75,9 @@ const PagesToRead = () => {
         <Tooltip content={<CustomTooltip />} />
         <Legend />
       </BarChart>
-    </div>
-  );
+    </ResponsiveContainer>
+  </div>
+);
 };
 
 export default PagesToRead;
